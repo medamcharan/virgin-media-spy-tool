@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virgin Media - Infosys Competitor Collaborations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    :root {
+      --primary: #e31937; /* Virgin Media red */
+      --secondary: #00a0df; /* Virgin Media blue */
+      --dark: #2c3e50;
+      --light: #f8f9fa;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--dark);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      font-weight: 600;
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      font-weight: 300;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .search-container {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .search-container:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    button:hover {
+      background-color: #c0102d;
+      transform: translateY(-2px);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    button i {
+      font-size: 1.2rem;
+    }
+    
+    .table-container {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+    
+    .table-container.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th {
+      background-color: var(--dark);
+      color: white;
+      padding: 15px;
+      text-align: left;
+      font-weight: 500;
+    }
+    
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    tr:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .confirmed {
+      color: var(--success);
+      font-weight: 600;
+    }
+    
+    .weak {
+      color: var(--warning);
+      font-weight: 600;
+    }
+    
+    .no-proof {
+      color: #6c757d;
+      font-style: italic;
+    }
+    
+    .proof-link {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .proof-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .spinner {
+      border: 4px solid rgba(0,0,0,0.1);
+      border-radius: 50%;
+      border-top: 4px solid var(--primary);
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      
+      th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="animate__animated animate__fadeIn">
+    <div class="container">
+      <h1>Infosys Competitors & Virgin Media Collaborations</h1>
+      <p class="subtitle">Analyzing strategic partnerships in the telecom and IT sector</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-container animate__animated animate__fadeInUp">
+      <h2>Partnership Analysis Dashboard</h2>
+      <p>Discover which Infosys competitors are collaborating with Virgin Media in the digital transformation space.</p>
+      
+      <button onclick="fetchData()" id="analyzeBtn">
+        
+        <span id="btnText">Run Comprehensive Analysis</span>
+        <span id="btnIcon">🔍</span>
+      </button>
+      
+      <div class="loading" id="loadingIndicator">
+        <div class="spinner"></div>
+        <p>Scanning for partnerships and collaborations...</p>
+      </div>
+    </section>
+
+    <section class="table-container" id="resultsContainer">
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Partnership Status</th>
+            <th>Collaboration Details</th>
+            <th>Evidence</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="animate__animated animate__fadeIn">
+    <p>Virgin Media Partnership Intelligence Tool | © 2023</p>
+  </footer>
+
+  <script>
+    async function fetchData() {
+      const btn = document.getElementById('analyzeBtn');
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+      const loading = document.getElementById('loadingIndicator');
+      const resultsContainer = document.getElementById('resultsContainer');
+      
+      // Show loading state
+      btn.disabled = true;
+      btnText.textContent = "Analyzing...";
+      btnIcon.textContent = "⏳";
+      loading.style.display = 'block';
+      
+      try {
+        const response = await fetch('http://localhost:3000/api/find-collaborators');
+        
+        if (!response.ok) {
+          throw new Error(`Server responded with ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Hide loading and show results
+        loading.style.display = 'none';
+        renderResults(data);
+        resultsContainer.classList.add('show');
+        
+        // Update button
+        btnText.textContent = "Analysis Complete";
+        btnIcon.textContent = "✅";
+        
+        // Scroll to results
+        setTimeout(() => {
+          resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      } catch (error) {
+        console.error('Fetch error:', error);
+        loading.innerHTML = `<p style="color: var(--danger)">Error: ${error.message}</p>`;
+        
+        btnText.textContent = "Try Again";
+        btnIcon.textContent = "🔄";
+        btn.disabled = false;
+      }
+    }
+    
+    function renderResults(data) {
+      const tbody = document.getElementById('resultsBody');
+      tbody.innerHTML = "";
+      
+      // Sort by status (confirmed first)
+      const sortedData = [...data].sort((a, b) => {
+        if (a.category === 'Confirmed Partnership') return -1;
+        if (b.category === 'Confirmed Partnership') return 1;
+        return 0;
+      });
+      
+      sortedData.forEach(item => {
+        const row = document.createElement('tr');
+        row.className = 'animate__animated animate__fadeIn';
+        
+        // Determine status class
+        let statusClass = '';
+        let statusText = item.category;
+        
+        if (item.category === 'Confirmed Partnership') {
+          statusClass = 'confirmed';
+        } else if (item.category === 'Potential Partnership') {
+          statusClass = 'weak';
+          statusText = 'Potential';
+        } else {
+          statusClass = 'no-proof';
+        }
+        
+        // Create proof cell
+        let proofCell = '';
+        if (item.proof && item.proof !== 'Not found') {
+          proofCell = `<a href="${item.proof}" class="proof-link" target="_blank" rel="noopener noreferrer">
+            View Evidence <span style="font-size:0.8em">↗</span>
+          </a>`;
+        } else {
+          proofCell = '<span class="no-proof">No direct evidence found</span>';
+        }
+        
+        row.innerHTML = `
+          <td><strong>${item.company}</strong></td>
+          <td class="${statusClass}">${statusText}</td>
+          <td>${item.description}</td>
+          <td>${proofCell}</td>
+        `;
+        
+        tbody.appendChild(row);
+      });
+    }
+  </script>
+</body>
+</html>
