@@ -7,8 +7,8 @@ app.use(cors());
 const PORT = 3000;
 
 // Your API key and Custom Search Engine ID
-const API_KEY = 'AIzaSyCac67OiwxJQf3pTXvLjHkVRSNClhd00VU';
-const CX = '07bd509583d50428f';
+const API_KEY =  Replace With Your Key;
+const CX = Replace With Your Key;
 
 const competitors = [
   "TCS", "Accenture", "Wipro", "HCLTech", "Cognizant", "Capgemini", "IBM", "Tech Mahindra", "DXC"
